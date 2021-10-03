@@ -1,6 +1,7 @@
 import { useState } from "react";
-import styles from "./Counter.module.css";
 import { Button, IconButton } from "../../components/Buttons";
+
+import styles from "./Counter.module.css"; // must put at the end to overwrite
 
 function Counter() {
     const [num, setNum] = useState(0);

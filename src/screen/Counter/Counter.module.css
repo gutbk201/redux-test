@@ -10,5 +10,5 @@
     font-size: 1.5rem;
 }
 .buttonRoot {
-    /* filter: brightness(1.2); */
+    border: 1px solid;
 }

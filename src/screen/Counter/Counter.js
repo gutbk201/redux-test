@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, IconButton } from "../../components/Buttons";
+import { Button } from "../../components/Buttons";
 
 import styles from "./Counter.module.css"; // must put at the end to overwrite
 

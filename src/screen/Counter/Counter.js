@@ -18,7 +18,7 @@ function Counter() {
             />
             <span className={styles.num}>{num}</span>
             <Button onClick={addNum} iconName="arrowUp">
-                foo{" "}
+                fooo{" "}
             </Button>
             <div className={styles.part}></div>
         </div>

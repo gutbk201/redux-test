@@ -1,4 +1,4 @@
-import Counter from "./Counter";
+import Counter from "./screen/Counter/Counter";
 
 function App() {
     return <Counter />;

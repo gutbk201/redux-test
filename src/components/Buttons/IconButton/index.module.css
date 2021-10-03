@@ -1,0 +1,6 @@
+.root {
+    composes: root from "../Button/index.module.css";
+}
+.icon {
+    margin-right: 1rem;
+}

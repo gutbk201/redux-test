@@ -1,0 +1,14 @@
+.root {
+    flex: 1;
+}
+.part {
+    margin: 2rem;
+    width: 20%;
+}
+.num {
+    padding: 2.5rem;
+    font-size: 1.5rem;
+}
+.buttonRoot {
+    /* filter: brightness(1.2); */
+}

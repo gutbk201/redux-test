@@ -7,11 +7,11 @@ const iconList = {
     arrowUp: ArrowUpCircle,
 };
 function Button(props) {
-    const { children, propStyles, onClick, iconName } = props;
+    const { children, propStyles, onClick, iconName, ariaLabel } = props;
     const styles = mergeStyles(defaultStyles, propStyles);
     const TheIcon = iconList[iconName];
     return (
-        <button className={styles.root} onClick={onClick}>
+        <button className={styles.root} onClick={onClick} ariaLabel={ariaLabel}>
             {iconName && (
                 <i className={styles.icon}>
                     <TheIcon size={24} />
@@ -29,5 +29,6 @@ Button.propTypes = {
     children: PropTypes.any,
     onClick: PropTypes.func,
     propStyles: PropTypes.object,
+    ariaLabel: PropTypes.string,
 };
 export default Button;

@@ -1,0 +1,33 @@
+.list {
+    display: flex;
+    flex-direction: column;
+}
+.item {
+    display: flex;
+    height: 14rem;
+    margin-bottom: 1rem;
+    background-color: var(--main-dark1);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition-duration: 500ms;
+}
+.item:hover {
+    filter: brightness(1.3);
+    transition-duration: 500ms;
+}
+.sectionA {
+    margin-left: 1rem;
+    overflow-y: clip;
+    flex: 2;
+}
+.sectionB {
+    margin-left: 1rem;
+    overflow-y: clip;
+    flex: 1;
+}
+.rating {
+    font-size: 1.2rem;
+}
+.votes {
+    font-size: 1.2rem;
+}

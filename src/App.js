@@ -1,12 +1,17 @@
 import { Switch, Route } from "react-router-dom";
-import { Nav, Counter } from "./features";
+import { Nav, Counter, Popular } from "./features";
 
 function App() {
+    const style = {
+        display: "flex",
+        flexDirection: "column",
+        overflowY: "auto",
+    };
     return (
-        <div>
+        <div style={style}>
             <Nav />
             <Switch>
-                <Route exact path="/" component={Blank} />
+                <Route exact path="/" component={Popular} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/about/:id" component={About} />
                 <Route exact path="/counter" component={Counter} />
@@ -15,9 +20,6 @@ function App() {
     );
 }
 
-function Blank() {
-    return <div>this is Blank</div>;
-}
 function About(props) {
     const id = props?.match?.params?.id;
     console.log({ id });

@@ -5,15 +5,18 @@ import "./styles/global.css";
 import App from "./App";
 import { store } from "./store";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import * as R from "rambdax";
 window.R = R;
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <App />
-        </Provider>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
 );

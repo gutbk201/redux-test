@@ -11,7 +11,11 @@ function Button(props) {
     const styles = mergeStyles(defaultStyles, propStyles);
     const TheIcon = iconList[iconName];
     return (
-        <button className={styles.root} onClick={onClick} ariaLabel={ariaLabel}>
+        <button
+            className={styles.root}
+            onClick={onClick}
+            aria-label={ariaLabel}
+        >
             {iconName && (
                 <i className={styles.icon}>
                     <TheIcon size={24} />

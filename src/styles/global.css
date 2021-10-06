@@ -11,5 +11,6 @@ body,
 }
 #root {
     display: flex;
+    flex-direction: column;
     background-color: var(--main-background-color);
 }

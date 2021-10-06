@@ -39,7 +39,7 @@ export function Counter() {
             <div className={styles.row}>
                 <input
                     className={styles.textbox}
-                    ariaLabel="Set increment amount"
+                    aria-label="Set increment amount"
                     value={incrementAmount}
                     onChange={(e) => setIncrementAmount(e.target.value)}
                 />
@@ -54,6 +54,8 @@ export function Counter() {
                 >
                     Add Async
                 </Button>
+            </div>
+            <div className={styles.row}>
                 <Button
                     onClick={() => dispatch(incrementIfOdd(incrementValue))}
                 >

@@ -1,7 +1,12 @@
-import { Counter } from "./features/counter/Counter";
+import { Nav, Counter } from "./features";
 
 function App() {
-    return <Counter />;
+    return (
+        <>
+            <Nav />
+            <Counter />;
+        </>
+    );
 }
 
 export default App;

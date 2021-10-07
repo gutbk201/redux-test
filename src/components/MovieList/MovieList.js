@@ -1,19 +1,19 @@
 import genresArray from "../../dummyJson/genres.json";
 import cn from "classnames";
-
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
 import styles from "./MovieList.module.css";
 function MovieList(props) {
-    const rawList = props.list;
-    const list = rawList
+    const list = props.list
         .map((item) => ({
             ...item,
-            poster_path: "https://image.tmdb.org/t/p/w200" + item.poster_path,
+            poster_path: "https://image.tmdb.org/t/p/w300" + item.poster_path,
             release_year: item.release_date.slice(0, 4),
             genres: item.genre_ids.map(
                 (id) => genresArray.find((gen) => gen.id === id)?.name
             ),
         }))
-        .slice(0, 2);
+        .slice(0, 3);
     return (
         <div className={"d-flex flex-column"}>
             {list.map((item) => (

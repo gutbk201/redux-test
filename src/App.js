@@ -2,13 +2,8 @@ import { Switch, Route } from "react-router-dom";
 import { Nav, Counter, Popular } from "./features";
 
 function App() {
-    const style = {
-        display: "flex",
-        flexDirection: "column",
-        overflowY: "auto",
-    };
     return (
-        <div style={style}>
+        <div>
             <Nav />
             <Switch>
                 <Route exact path="/" component={Popular} />

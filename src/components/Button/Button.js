@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { mergeStyles } from "../../../util/helper.ts";
-import defaultStyles from "./index.module.css";
+import { mergeStyles } from "../../util/helper.ts";
+import defaultStyles from "./Button.module.css";
 import { ArrowUpCircle, ArrowDownCircle } from "react-bootstrap-icons";
 const iconList = {
     arrowDown: ArrowDownCircle,

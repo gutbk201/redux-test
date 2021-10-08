@@ -11,7 +11,7 @@ import {
 } from "./counterSlice";
 import Button from "../../components/Button";
 
-import styles from "./counter.module.css"; // must put at the end to overwrite
+import styles from "./Counter.module.css"; // must put at the end to overwrite
 
 export default function Counter() {
     const count = useSelector(selectCount);

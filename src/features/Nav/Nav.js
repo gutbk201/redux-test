@@ -6,9 +6,17 @@ import Navbar from "react-bootstrap/Navbar";
 function Nav() {
     let history = useHistory();
     return (
-        <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+        <Navbar
+            collapseOnSelect
+            expand="md"
+            bg="dark"
+            variant="dark"
+            fixed="top"
+        >
             <Container>
-                <Navbar.Brand href="/">Movie Lookup</Navbar.Brand>
+                <Navbar.Brand href="#" onClick={() => history.push("/")}>
+                    Movie Lookup
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <NavBS className="me-auto">

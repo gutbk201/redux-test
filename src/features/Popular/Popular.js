@@ -1,6 +1,6 @@
 import dummy from "../../dummyJson/popular.json";
 import styles from "./popular.module.css";
-import MovieList from "../../components/MovieList";
+import { MovieList } from "../../components";
 function Popular(props) {
     const dbResults = dummy?.results;
     const { history } = props;

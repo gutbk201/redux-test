@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom";
-import { Nav, Counter, Popular, MovieDetail } from "./features";
-import Footer from "./components/Footer";
+import { Counter, Popular, MovieDetail } from "./features";
+import { Nav, Footer } from "./components";
 
 function App() {
     return (

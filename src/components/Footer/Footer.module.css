@@ -1,0 +1,11 @@
+.root {
+    background-color: var(--main-background-color);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+.root > img {
+    max-width: 50vw;
+    cursor: pointer;
+}

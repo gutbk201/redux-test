@@ -1,5 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import { Nav, Counter, Popular, MovieDetail } from "./features";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Route exact path="/movie/:id" component={MovieDetail} />
                 <Route exact path="/counter" component={Counter} />
             </Switch>
+            <Footer />
         </div>
     );
 }

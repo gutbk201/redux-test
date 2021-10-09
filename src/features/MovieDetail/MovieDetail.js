@@ -1,16 +1,26 @@
-import styles from "./MovieDetail.module.css";
-import dummy from "../../dummyJson/detail-550988.json";
+import { fetchMovieDetail, selectMovieDetail } from "./MovieDetailSlice";
 import produce from "immer";
-const imageBaseUrl = `https://image.tmdb.org/t/p`;
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import styles from "./MovieDetail.module.css";
+
+const getImage = (width) => `https://image.tmdb.org/t/p/w` + width;
 function Popular(props) {
-    const dbResults = dummy;
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const id = props?.match?.params?.id;
+        dispatch(fetchMovieDetail(id));
+    }, [dispatch, props?.match?.params?.id]);
+    const dbResults = useSelector(selectMovieDetail)?.data;
+    const status = useSelector(selectMovieDetail)?.status;
+    if (status !== "idle") return <>loading</>;
     const item = produce(dbResults, (draft) => {
-        draft.poster_path = imageBaseUrl + "/w300" + draft.poster_path;
+        draft.poster_path = getImage(300) + draft.poster_path;
         draft.runtime = `${Math.floor(draft.runtime / 60)}h
         ${draft.runtime % 60}m`;
         draft.production_companies = draft.production_companies.map((com) => ({
             ...com,
-            logo_path: com.logo_path && imageBaseUrl + "/w154" + com.logo_path,
+            logo_path: com.logo_path && getImage(154) + com.logo_path,
         }));
     });
     return (

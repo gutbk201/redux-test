@@ -11,10 +11,10 @@ function Popular(props) {
         const id = props?.match?.params?.id;
         dispatch(fetchMovieDetail(id));
     }, [dispatch, props?.match?.params?.id]);
-    const dbResults = useSelector(selectMovieDetail)?.data;
-    const status = useSelector(selectMovieDetail)?.status;
-    if (status !== "idle") return <>loading</>;
-    const item = produce(dbResults, (draft) => {
+    const dbResponds = useSelector(selectMovieDetail);
+    const rawItem = dbResponds?.data;
+    if (dbResponds.status !== "idle") return <>loading</>;
+    const item = produce(rawItem, (draft) => {
         draft.poster_path = getImage(300) + draft.poster_path;
         draft.runtime = `${Math.floor(draft.runtime / 60)}h
         ${draft.runtime % 60}m`;

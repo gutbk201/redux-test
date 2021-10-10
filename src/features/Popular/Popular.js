@@ -1,13 +1,25 @@
-import dummy from "../../dummyJson/popular.json";
-import styles from "./popular.module.css";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    selectMovieList,
+    fetchMovieList,
+} from "../../components/MovieList/MovieListSlice";
 import { MovieList } from "../../components";
+import styles from "./popular.module.css";
 function Popular(props) {
-    const dbResults = dummy?.results;
     const { history } = props;
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const page = 1;
+        dispatch(fetchMovieList(page));
+    }, [dispatch]);
+    const dbResponds = useSelector(selectMovieList);
+    if (dbResponds.status !== "idle") return <div>loading</div>;
+    const list = dbResponds?.data?.results;
     return (
         <main className={styles.root}>
             <h1 className={styles.title}>Popular Movies</h1>
-            <MovieList list={dbResults} history={history} />
+            <MovieList list={list} history={history} />
         </main>
     );
 }

@@ -4,11 +4,11 @@ import dummy from "../../dummyJson/popular.json";
 const api_key = process.env.REACT_APP_TMDB_API_KEY;
 const baseUrl = `https://api.themoviedb.org/3/movie/popular`;
 function apiGetMovieList(page) {
-    // return axios.get(baseUrl, { params: { language: "en-US", api_key, page } });
-    return { data: dummy };
+    return axios.get(baseUrl, { params: { language: "en-US", api_key, page } });
+    // return { data: dummy };
 }
 const initialState = {
-    status: "init",
+    apiStatus: "init",
     data: {},
 };
 
@@ -27,10 +27,10 @@ export const MovieListSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchMovieList.pending, (state) => {
-                state.status = "loading";
+                state.apiStatus = "loading";
             })
             .addCase(fetchMovieList.fulfilled, (state, action) => {
-                state.status = "idle";
+                state.apiStatus = "idle";
                 state.data = action.payload;
             });
     },

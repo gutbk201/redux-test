@@ -1,0 +1,16 @@
+.root {
+    /* background-color: var(--main-background-color); */
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+.root > span {
+    cursor: pointer;
+    background-color: var(--main-dark1);
+    padding: 0.8rem;
+    transition-duration: 500ms;
+}
+.root > span:hover {
+    filter: brightness(1.3);
+}

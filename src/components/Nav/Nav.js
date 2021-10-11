@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 
 function Nav() {
     let history = useHistory();
+    const toPopular = () => history.push("/", { getNew: true });
     return (
         <Navbar
             collapseOnSelect
@@ -14,13 +15,13 @@ function Nav() {
             fixed="top"
         >
             <Container>
-                <Navbar.Brand href="#" onClick={() => history.push("/")}>
+                <Navbar.Brand href="#" onClick={toPopular}>
                     Movie Lookup
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <NavBS className="me-auto">
-                        <NavBS.Link href="#" onClick={() => history.push("/")}>
+                        <NavBS.Link href="#" onClick={toPopular}>
                             Popular
                         </NavBS.Link>
                         <NavBS.Link

@@ -13,7 +13,7 @@ function Popular(props) {
     }, [dispatch, props?.match?.params?.id]);
     const dbResponds = useSelector(selectMovieDetail);
     const rawItem = dbResponds?.data;
-    if (dbResponds.status !== "idle") return <>loading</>;
+    if (dbResponds.apiStatus !== "idle") return <>loading</>;
     const item = produce(rawItem, (draft) => {
         draft.poster_path = getImage(300) + draft.poster_path;
         draft.runtime = `${Math.floor(draft.runtime / 60)}h

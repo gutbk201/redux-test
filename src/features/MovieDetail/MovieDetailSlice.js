@@ -8,7 +8,7 @@ function apiGetMovieDetail(id) {
     return { data: dummy };
 }
 const initialState = {
-    status: "init",
+    apiStatus: "init",
     data: {},
 };
 
@@ -28,10 +28,10 @@ export const MovieDetailSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchMovieDetail.pending, (state) => {
-                state.status = "loading";
+                state.apiStatus = "loading";
             })
             .addCase(fetchMovieDetail.fulfilled, (state, action) => {
-                state.status = "idle";
+                state.apiStatus = "idle";
                 state.data = action.payload;
             });
     },

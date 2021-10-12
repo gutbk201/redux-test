@@ -1,0 +1,15 @@
+.root {
+    margin: 0.5rem;
+    display: flex;
+}
+.root > i {
+    background-color: #004db1;
+    cursor: pointer;
+}
+.root > i:hover {
+    filter: brightness(1.3);
+}
+.root > input {
+    flex: 1;
+    font-size: 1.5rem;
+}

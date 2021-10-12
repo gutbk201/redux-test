@@ -5,6 +5,7 @@ import {
     fetchMovieList,
 } from "../../components/MovieList/MovieListSlice";
 import { MovieList, Pagination } from "../../components";
+import { SearchBar } from "../";
 import styles from "./popular.module.css";
 function Popular(props) {
     const { history, location } = props;
@@ -37,6 +38,7 @@ function Popular(props) {
     return (
         <main className={styles.root}>
             <h1 className={styles.title}>Popular Movies</h1>
+            <SearchBar />
             <ThePagination />
             <MovieList list={data?.results} history={history} />
             <ThePagination />

@@ -1,5 +1,6 @@
 import genresArray from "../../dummyJson/genres.json";
 import { Link } from "react-router-dom";
+import cn from "classnames";
 import styles from "./MovieList.module.css";
 function MovieList(props) {
     const { history, list } = props;
@@ -15,15 +16,24 @@ function MovieList(props) {
     return (
         <div className={styles.root}>
             {mappedList.map((item) => (
-                <div key={item.id} className={"col-lg-3 col-md-4 col-sm-6"}>
+                <div
+                    key={item.id}
+                    className={"col-lg-3 col-md-4 col-sm-6 col-12"}
+                >
                     <div className={styles.item}>
                         <img
                             src={item.poster_path}
                             alt={"poster"}
-                            className={styles.img}
+                            className={cn(styles.img, "col-md-12", "col-4")}
                             onClick={() => history.push("/movie/" + item.id)}
                         />
-                        <div className={styles.sectionA}>
+                        <div
+                            className={cn(
+                                styles.sectionA,
+                                "col-8",
+                                "col-md-12"
+                            )}
+                        >
                             <h4>
                                 <Link
                                     to={"/movie/" + item.id}
@@ -34,11 +44,13 @@ function MovieList(props) {
                                 </Link>{" "}
                                 ({item.release_year})
                             </h4>
-                            <div className={styles.rating}>
-                                {item.vote_average}/10
-                            </div>
-                            <div className={styles.votes}>
-                                {item.vote_count} votes
+                            <div className={styles.ratingParent}>
+                                <div className={styles.rating}>
+                                    {item.vote_average}/10
+                                </div>
+                                <div className={styles.votes}>
+                                    {item.vote_count} votes
+                                </div>
                             </div>
                             <div>{item.genres.join(", ")}</div>
                         </div>

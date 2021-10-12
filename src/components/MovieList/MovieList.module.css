@@ -2,13 +2,15 @@
     display: flex;
     flex-wrap: wrap;
 }
-.itemCover {
+@media (max-width: 576px) {
+    .root > div {
+        margin: auto;
+    }
 }
 .item {
     background-color: var(--main-dark1);
     margin: 0.5rem;
     margin-bottom: 1.5rem;
-    padding: 1rem;
     transition-duration: 500ms;
     display: flex;
     flex-wrap: wrap;
@@ -20,16 +22,18 @@
     cursor: pointer;
 }
 .img {
-    min-width: 200px;
     max-width: 100%;
     margin: auto;
     cursor: pointer;
 }
 .sectionA {
     padding: 1rem;
-    min-width: 200px;
     overflow-y: clip;
     flex: 2;
+}
+.ratingParent {
+    display: flex;
+    gap: 1rem;
 }
 .rating {
     font-size: 1.2rem;

@@ -5,10 +5,9 @@ function Pagination(props) {
     const { cur, total, toPage } = props;
     return (
         <div className={styles.root}>
-            {cur !== 1 && <span onClick={() => toPage(cur - 1)}>{"<"}</span>}
-            <span>{cur}</span>
+            {cur !== 1 && <span onClick={() => toPage(cur - 1)}>{"Prev"}</span>}
             {cur !== total && (
-                <span onClick={() => toPage(cur + 1)}>{">"}</span>
+                <span onClick={() => toPage(cur + 1)}>{"Next"}</span>
             )}
         </div>
     );

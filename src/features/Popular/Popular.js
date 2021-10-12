@@ -17,22 +17,29 @@ function Popular(props) {
         const page = 1;
         dispatch(fetchMovieList(page));
     }, [dispatch, fetchNew]);
+    useEffect(() => {
+        // this one doesn't work on mobile
+        // setTimeout(
+        //     () => window.scrollTo({ top: 10000, behavior: "instant" }),
+        //     100
+        // );
+        return () => {
+            // const { scrollY, scrollMaxY } = window;
+            // const dom = document.querySelector("#root>div");
+            // console.log(scrollY, scrollMaxY, dom.scrollY, dom.scrollMaxY);
+        };
+    }, []);
     if (apiStatus !== "idle") return <>loading</>;
     const toPage = (page) => dispatch(fetchMovieList(page));
+    const ThePagination = () => (
+        <Pagination cur={data.page} total={data.total_pages} toPage={toPage} />
+    );
     return (
         <main className={styles.root}>
-            <Pagination
-                cur={data.page}
-                total={data.total_pages}
-                toPage={toPage}
-            />
             <h1 className={styles.title}>Popular Movies</h1>
+            <ThePagination />
             <MovieList list={data?.results} history={history} />
-            <Pagination
-                cur={data.page}
-                total={data.total_pages}
-                toPage={toPage}
-            />
+            <ThePagination />
         </main>
     );
 }

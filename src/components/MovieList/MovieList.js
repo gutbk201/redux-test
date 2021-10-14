@@ -1,13 +1,16 @@
 import genresArray from "../../dummyJson/genres.json";
 import { Link } from "react-router-dom";
 import cn from "classnames";
+import missingImage from "../../assets/missing-image.png";
 import styles from "./MovieList.module.css";
 function MovieList(props) {
     const { history, list } = props;
     if (!list || list.length === 0) return <div>empty</div>;
     const mappedList = list.map((item) => ({
         ...item,
-        poster_path: "https://image.tmdb.org/t/p/w300" + item.poster_path,
+        poster_path: item.poster_path
+            ? "https://image.tmdb.org/t/p/w300" + item.poster_path
+            : missingImage,
         release_year: item.release_date.slice(0, 4),
         genres: item.genre_ids.map(
             (id) => genresArray.find((gen) => gen.id === id)?.name

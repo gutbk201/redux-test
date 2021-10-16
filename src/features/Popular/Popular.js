@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    selectMovies,
-    fetchMovies,
-} from "../../components/MovieList/MovieListSlice";
-import { MovieList, Pagination } from "../../components";
+import { selectMovies, fetchMovies } from "../MovieList/MovieListSlice";
+import { MovieList } from "../";
+import { Pagination } from "../../components";
 import { SearchBar } from "../";
 import styles from "./popular.module.css";
 function Popular(props) {

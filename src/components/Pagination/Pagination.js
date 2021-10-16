@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import logo from "../../assets/tmdb-logo.svg";
 import styles from "./Pagination.module.css";
 function Pagination(props) {
     const { cur, total, toPage } = props;
@@ -15,5 +14,9 @@ function Pagination(props) {
 Pagination.defaultProps = {
     propStyles: {},
 };
-Pagination.propTypes = {};
+Pagination.propTypes = {
+    cur: PropTypes.number,
+    total: PropTypes.number,
+    toPage: PropTypes.func,
+};
 export default Pagination;

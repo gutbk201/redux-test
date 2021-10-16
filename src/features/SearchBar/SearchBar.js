@@ -28,3 +28,7 @@ function SearchBar(props) {
 }
 
 export default SearchBar;
+
+SearchBar.defaultProps = {
+    keyword: "",
+};

@@ -22,6 +22,8 @@ function Popular(props) {
             ...com,
             logo_path: com.logo_path && getImage(154) + com.logo_path,
         }));
+        draft.genresString =
+            "Genres: " + draft.genres.map((g) => g.name).join(", ");
     });
     return (
         <main className={styles.root}>
@@ -41,6 +43,12 @@ function Popular(props) {
                     <div className={styles.p}>
                         <h1 className={styles.title}>{item.title}</h1>
                         <div>{item.tagline}</div>
+                    </div>
+
+                    <div className={styles.p}>
+                        <section>
+                            <div>{item.genresString}</div>
+                        </section>
                     </div>
                     <div className={styles.p}>
                         <div className={styles.sectionsB}>

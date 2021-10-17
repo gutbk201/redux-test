@@ -17,7 +17,11 @@ function Search(props) {
     if (apiStatus !== "idle") return <>loading</>;
     const toPage = (page) => dispatch(searchMovies({ keyword, page }));
     const ThePagination = () => (
-        <Pagination cur={data.page} total={data.total_pages} toPage={toPage} />
+        <Pagination
+            cur={data?.page}
+            total={data?.total_pages}
+            toPage={toPage}
+        />
     );
     return (
         <main className={styles.root}>

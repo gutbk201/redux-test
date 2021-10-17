@@ -20,21 +20,22 @@ function Nav() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <NavBS className="me-auto">
+                    <NavBS className="me-auto"></NavBS>
+                    <NavBS>
                         <NavBS.Link href="#" onClick={toPopular}>
                             Popular
+                        </NavBS.Link>
+                        <NavBS.Link
+                            href="#"
+                            onClick={() => history.push("/genres")}
+                        >
+                            Genres
                         </NavBS.Link>
                         <NavBS.Link
                             href="#"
                             onClick={() => history.push("/counter")}
                         >
                             Count
-                        </NavBS.Link>
-                    </NavBS>
-                    <NavBS>
-                        <NavBS.Link href="#deets">More deets</NavBS.Link>
-                        <NavBS.Link eventKey={2} href="#memes">
-                            Dank memes
                         </NavBS.Link>
                     </NavBS>
                 </Navbar.Collapse>

@@ -20,3 +20,7 @@ body,
     flex-direction: column;
     background-color: var(--main-background-color);
 }
+main {
+    max-width: 1200px;
+    margin: auto;
+}

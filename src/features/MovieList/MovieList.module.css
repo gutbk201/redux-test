@@ -18,6 +18,12 @@
 .item:hover {
     filter: brightness(1.3);
 }
+.bookmark {
+    cursor: pointer;
+    position: absolute;
+    background-color: var(--main-dark2);
+    padding: 0.5rem;
+}
 .title {
     cursor: pointer;
 }

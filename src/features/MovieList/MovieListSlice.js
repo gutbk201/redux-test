@@ -1,5 +1,7 @@
+import { type, path } from "rambdax";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import produce from "immer";
 import dummy from "../../dummyJson/by-genre16.json";
 const api_key = process.env.REACT_APP_TMDB_API_KEY;
 const baseUrl = `https://api.themoviedb.org/3`;
@@ -54,6 +56,11 @@ const initialState = {
     apiStatus: "init",
     data: {},
 };
+function setUnderId(array) {
+    return array.reduce((cur, next) => {
+        return { ...cur, [next.id]: next };
+    }, {});
+}
 
 export const MovieListSlice = createSlice({
     name: "movieList",
@@ -67,6 +74,7 @@ export const MovieListSlice = createSlice({
             .addCase(fetchMovies.fulfilled, (state, action) => {
                 state.apiStatus = "idle";
                 state.data = action.payload;
+                state.data.results = setUnderId(action.payload.results);
             })
             .addCase(searchMovies.pending, (state) => {
                 state.apiStatus = "loading";
@@ -74,6 +82,7 @@ export const MovieListSlice = createSlice({
             .addCase(searchMovies.fulfilled, (state, action) => {
                 state.apiStatus = "idle";
                 state.data = action.payload;
+                state.data.results = setUnderId(action.payload.results);
             })
             .addCase(searchGenreMovies.pending, (state) => {
                 state.apiStatus = "loading";
@@ -81,6 +90,7 @@ export const MovieListSlice = createSlice({
             .addCase(searchGenreMovies.fulfilled, (state, action) => {
                 state.apiStatus = "idle";
                 state.data = action.payload;
+                state.data.results = setUnderId(action.payload.results);
             });
     },
 });

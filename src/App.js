@@ -1,5 +1,12 @@
 import { Switch, Route, Redirect } from "react-router-dom";
-import { Counter, Popular, MovieDetail, Search, Genres } from "./features";
+import {
+    Counter,
+    Popular,
+    MovieDetail,
+    Search,
+    Genres,
+    Bookmark,
+} from "./features";
 import { Nav, Footer } from "./components";
 
 function App() {
@@ -17,6 +24,7 @@ function App() {
                 <Route exact path="/search/:keyword" component={Search} />
                 <Route exact path="/genres/" component={Genres} />
                 <Route exact path="/genres/:genre" component={Genres} />
+                <Route exact path="/bookmark" component={Bookmark} />
                 <Route exact path="/counter" component={Counter} />
                 <Redirect to="/" />
             </Switch>

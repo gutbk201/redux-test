@@ -8,8 +8,9 @@ import styles from "./popular.module.css";
 function Popular(props) {
     const { history, location } = props;
     const { apiStatus, data } = useSelector(selectMovies);
+    //if server pass invalid data structure, can it handle ?
+    const list = Object.values(data?.results || []);
     const page = location?.state?.page;
-    console.log(page, location);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchMovies(page));
@@ -24,7 +25,7 @@ function Popular(props) {
             <h1 className={styles.title}>Popular Movies</h1>
             <SearchBar />
             <ThePagination />
-            <MovieList list={data?.results} history={history} />
+            <MovieList list={list} history={history} />
             <ThePagination />
         </main>
     );

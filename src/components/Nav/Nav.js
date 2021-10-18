@@ -34,6 +34,12 @@ function Nav() {
                         </NavBS.Link>
                         <NavBS.Link
                             href="#"
+                            onClick={() => history.push("/bookmark")}
+                        >
+                            Bookmark
+                        </NavBS.Link>
+                        <NavBS.Link
+                            href="#"
                             onClick={() => history.push("/counter")}
                         >
                             Count

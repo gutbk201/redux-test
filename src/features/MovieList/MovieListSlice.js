@@ -7,18 +7,13 @@ function apiGetMovies(page) {
     return axios.get(baseUrl + "/movie/popular", {
         params: { language: "en-US", api_key, page },
     });
-    // return { data: dummy };
 }
 
 function apiSearchMovies({ keyword, page }) {
     return axios.get(baseUrl + "/search/movie", {
         params: { api_key, page, query: keyword },
     });
-    // return { data: dummy };
 }
-
-//https://api.themoviedb.org/3/discover/movie?api_key=c47afb8e8b27906bca710175d6e8ba68&language=en-US&sort_by=popularity.desc
-//&include_adult=false&include_video=false&page=1&with_genres=16&with_watch_monetization_types=flatrate
 
 function apiSearchMoviesByGenre({ genreId, page }) {
     return axios.get(baseUrl + "/discover/movie", {

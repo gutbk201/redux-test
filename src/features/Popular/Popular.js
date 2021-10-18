@@ -8,28 +8,14 @@ import styles from "./popular.module.css";
 function Popular(props) {
     const { history, location } = props;
     const { apiStatus, data } = useSelector(selectMovies);
+    const page = location?.state?.page;
+    console.log(page, location);
     const dispatch = useDispatch();
-    const fetchNew = apiStatus === "init" || location?.state?.getNew;
     useEffect(() => {
-        if (!fetchNew) return;
-        console.log("fetch new");
-        const page = 1;
         dispatch(fetchMovies(page));
-    }, [dispatch, fetchNew]);
-    useEffect(() => {
-        // this one doesn't work on mobile
-        // setTimeout(
-        //     () => window.scrollTo({ top: 10000, behavior: "instant" }),
-        //     100
-        // );
-        return () => {
-            // const { scrollY, scrollMaxY } = window;
-            // const dom = document.querySelector("#root>div");
-            // console.log(scrollY, scrollMaxY, dom.scrollY, dom.scrollMaxY);
-        };
-    }, []);
+    }, [dispatch, page]);
     if (apiStatus !== "idle") return <>loading</>;
-    const toPage = (page) => dispatch(fetchMovies(page));
+    const toPage = (page) => history.push(location.pathname, { page });
     const ThePagination = () => (
         <Pagination cur={data.page} total={data.total_pages} toPage={toPage} />
     );

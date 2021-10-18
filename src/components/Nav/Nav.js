@@ -2,10 +2,11 @@ import { useHistory } from "react-router-dom";
 import NavBS from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import styles from "./Nav.module.css";
 
 function Nav() {
     let history = useHistory();
-    const toPopular = () => history.push("/", { getNew: true });
+    const toPopular = () => history.push("/");
     return (
         <Navbar
             collapseOnSelect
@@ -21,7 +22,7 @@ function Nav() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <NavBS className="me-auto"></NavBS>
-                    <NavBS>
+                    <NavBS className={styles.nav}>
                         <NavBS.Link href="#" onClick={toPopular}>
                             Popular
                         </NavBS.Link>

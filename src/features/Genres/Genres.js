@@ -6,7 +6,7 @@ import { Pagination } from "../../components";
 import genreList from "../../util/genres.json";
 import styles from "./Genres.module.css";
 function Genres(props) {
-    const { match, history, location } = props;
+    const { match, history } = props;
     const genre = match?.params?.genre;
     return genre ? (
         <Result {...{ genre, history }} />

@@ -10,6 +10,7 @@ import {
 import {
     selectBookmark,
     insert as insertBookmark,
+    remove as removeBookmark,
 } from "../Bookmark/BookmarkSlice";
 import styles from "./MovieList.module.css";
 function MovieList(props) {
@@ -35,16 +36,23 @@ function MovieList(props) {
                     className={"col-lg-3 col-md-4 col-sm-6 col-12"}
                 >
                     <div className={styles.item}>
-                        <i
-                            className={styles.bookmark}
-                            onClick={() => dispatch(insertBookmark(item))}
-                        >
-                            {bookmarks[item.id] ? (
+                        {bookmarks[item.id] ? (
+                            <i
+                                className={styles.bookmark}
+                                onClick={() =>
+                                    dispatch(removeBookmark(item.id))
+                                }
+                            >
                                 <HeartFillIcon size={24} />
-                            ) : (
+                            </i>
+                        ) : (
+                            <i
+                                className={styles.bookmark}
+                                onClick={() => dispatch(insertBookmark(item))}
+                            >
                                 <HeartIcon size={24} />
-                            )}
-                        </i>
+                            </i>
+                        )}
                         <img
                             src={item.poster_path}
                             alt={"poster"}

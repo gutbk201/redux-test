@@ -18,10 +18,15 @@ export const BookmarkSlice = createSlice({
             )(action.payload);
             state.data = newData;
         },
+        remove: (state, action) => {
+            const id = action.payload;
+            console.log({ id });
+            delete state.data[id];
+        },
     },
 });
 
-export const { insert } = BookmarkSlice.actions;
+export const { insert, remove } = BookmarkSlice.actions;
 
 export const selectBookmark = (state) => state.bookmark;
 

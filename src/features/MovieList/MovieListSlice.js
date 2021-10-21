@@ -54,7 +54,9 @@ export const searchGenreMovies = createAsyncThunk(
 );
 const initialState = {
     apiStatus: "init",
-    data: {},
+    data: {
+        results: [],
+    },
 };
 function setUnderId(array) {
     return array.reduce((cur, next) => {

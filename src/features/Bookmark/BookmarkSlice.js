@@ -1,7 +1,7 @@
-import { omit, map, pipe } from "rambdax";
+import { omit, pipe, merge } from "rambdax";
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    data: [],
+    data: {},
 };
 
 export const BookmarkSlice = createSlice({
@@ -9,14 +9,14 @@ export const BookmarkSlice = createSlice({
     initialState,
     reducers: {
         insert: (state, action) => {
-            // const newData = omit("vote_average,vote_count")(action.payload);
-            // const newData = map((movie) => ({ [movie.id]: movie }))(
-            //     action.payload
-            // );
-            const newData = pipe(omit("vote_average,vote_count"), (movie) => ({
-                [movie.id]: movie,
-            }))(action.payload);
-            state.data.push(newData);
+            const newData = pipe(
+                omit("vote_average,vote_count"),
+                (movie) => ({
+                    [movie.id]: movie,
+                }),
+                merge(state.data)
+            )(action.payload);
+            state.data = newData;
         },
     },
 });

@@ -8,6 +8,7 @@ import styles from "./Search.module.css";
 function Search(props) {
     const { history, match } = props;
     const { apiStatus, data } = useSelector(selectMovies);
+    const list = Object.values(data.results);
     const keyword = match?.params?.keyword;
     const dispatch = useDispatch();
     useEffect(() => {
@@ -28,7 +29,7 @@ function Search(props) {
             <h1 className={styles.title}>Search Result</h1>
             <SearchBar keyword={keyword} />
             <ThePagination />
-            <MovieList list={data?.results} history={history} />
+            <MovieList list={list} history={history} />
             <ThePagination />
         </main>
     );

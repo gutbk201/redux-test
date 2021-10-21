@@ -2,24 +2,27 @@ import genresArray from "../../dummyJson/genres.json";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import missingImage from "../../assets/missing-image.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
     Heart as HeartIcon,
     HeartFill as HeartFillIcon,
 } from "react-bootstrap-icons";
-import { insert as insertBookmark } from "../Bookmark/BookmarkSlice";
+import {
+    selectBookmark,
+    insert as insertBookmark,
+} from "../Bookmark/BookmarkSlice";
 import styles from "./MovieList.module.css";
 function MovieList(props) {
     const { history, list } = props;
-    console.log(list);
     const dispatch = useDispatch();
+    const bookmarks = useSelector(selectBookmark).data;
     if (!list || list.length === 0) return <div>empty</div>;
     const mappedList = list.map((item) => ({
         ...item,
         poster_path: item.poster_path
             ? "https://image.tmdb.org/t/p/w300" + item.poster_path
             : missingImage,
-        release_year: item.release_date.slice(0, 4),
+        release_year: item.release_date && item.release_date.slice(0, 4),
         genres: item.genre_ids.map(
             (id) => genresArray.find((gen) => gen.id === id)?.name
         ),
@@ -36,7 +39,11 @@ function MovieList(props) {
                             className={styles.bookmark}
                             onClick={() => dispatch(insertBookmark(item))}
                         >
-                            <HeartIcon size={24} />
+                            {bookmarks[item.id] ? (
+                                <HeartFillIcon size={24} />
+                            ) : (
+                                <HeartIcon size={24} />
+                            )}
                         </i>
                         <img
                             src={item.poster_path}

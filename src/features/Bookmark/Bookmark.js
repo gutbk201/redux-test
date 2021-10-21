@@ -5,9 +5,7 @@ import styles from "./Bookmark.module.css";
 function Bookmark(props) {
     const { history } = props;
     const bookmark = useSelector(selectBookmark);
-    console.log({ bookmark });
     const list = Object.values(bookmark.data);
-    console.log({ list });
     return (
         <div className={styles.root}>
             <h1 className={styles.title}>Bookmark</h1>

@@ -8,8 +8,7 @@ import styles from "./popular.module.css";
 function Popular(props) {
     const { history, location } = props;
     const { apiStatus, data } = useSelector(selectMovies);
-    //if server pass invalid data structure, can it handle ?
-    const list = Object.values(data?.results || []);
+    const list = Object.values(data.results);
     const page = location?.state?.page;
     const dispatch = useDispatch();
     useEffect(() => {

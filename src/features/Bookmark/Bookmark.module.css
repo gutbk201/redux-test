@@ -1,6 +1,7 @@
 .root {
     display: flex;
     flex-wrap: wrap;
+    padding: 1rem;
 }
 .title {
     width: 100%;

@@ -7,10 +7,10 @@ function Bookmark(props) {
     const bookmark = useSelector(selectBookmark);
     const list = Object.values(bookmark.data);
     return (
-        <div className={styles.root}>
+        <main className={styles.root}>
             <h1 className={styles.title}>Bookmark</h1>
             <MovieList list={list} history={history} />
-        </div>
+        </main>
     );
 }
 

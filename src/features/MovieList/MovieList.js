@@ -1,7 +1,5 @@
-import genresArray from "../../dummyJson/genres.json";
 import { Link } from "react-router-dom";
 import cn from "classnames";
-import missingImage from "../../assets/missing-image.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
     Heart as HeartIcon,
@@ -18,19 +16,9 @@ function MovieList(props) {
     const dispatch = useDispatch();
     const bookmarks = useSelector(selectBookmark).data;
     if (!list || list.length === 0) return <div>empty</div>;
-    const mappedList = list.map((item) => ({
-        ...item,
-        poster_path: item.poster_path
-            ? "https://image.tmdb.org/t/p/w300" + item.poster_path
-            : missingImage,
-        release_year: item.release_date && item.release_date.slice(0, 4),
-        genres: item.genre_ids.map(
-            (id) => genresArray.find((gen) => gen.id === id)?.name
-        ),
-    }));
     return (
         <div className={styles.root}>
-            {mappedList.map((item) => (
+            {list.map((item) => (
                 <div
                     key={item.id}
                     className={"col-lg-3 col-md-4 col-sm-6 col-12"}

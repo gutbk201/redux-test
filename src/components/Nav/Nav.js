@@ -38,12 +38,6 @@ function Nav() {
                         >
                             Bookmark
                         </NavBS.Link>
-                        <NavBS.Link
-                            href="#"
-                            onClick={() => history.push("/counter")}
-                        >
-                            Count
-                        </NavBS.Link>
                     </NavBS>
                 </Navbar.Collapse>
             </Container>

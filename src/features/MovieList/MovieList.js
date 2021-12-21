@@ -12,7 +12,8 @@ import {
 } from "../Bookmark/BookmarkSlice";
 import styles from "./MovieList.module.css";
 function MovieList(props) {
-    const { history, list } = props;
+    const { history } = props;
+    const list = Object.values(props.list);
     const dispatch = useDispatch();
     const bookmarks = useSelector(selectBookmark).data;
     if (!list || list.length === 0) return <div>empty</div>;

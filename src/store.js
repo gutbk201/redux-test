@@ -3,6 +3,7 @@ import counterReducer from "./features/Counter/counterSlice";
 import movieListReducer from "./features/MovieList/MovieListSlice";
 import movieDetailReducer from "./features/MovieDetail/MovieDetailSlice";
 import bookmarkReducer from "./features/Bookmark/BookmarkSlice";
+import { throttle } from "rambdax";
 import dummy from "./dummyJson/popular.json";
 
 function saveLocalStorage(state) {
@@ -16,7 +17,7 @@ function saveLocalStorage(state) {
 function loadLocalStorage() {
     try {
         const serialisedState = localStorage.getItem("persistantState");
-        if (serialisedState === null) return undefined;
+        if (serialisedState === null) return {};
         return JSON.parse(serialisedState);
     } catch (e) {
         console.warn(e);
@@ -29,7 +30,7 @@ export const store = configureStore({
         // counter: {
         //     value: 123,
         // },
-        // bookmark: dummy.results,
+        bookmark: loadLocalStorage().bookmark,
     },
     reducer: {
         counter: counterReducer,
@@ -38,3 +39,5 @@ export const store = configureStore({
         movieList: movieListReducer,
     },
 });
+
+store.subscribe(throttle(() => saveLocalStorage(store.getState()), 2000));

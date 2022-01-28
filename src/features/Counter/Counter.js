@@ -8,7 +8,7 @@ import {
     incrementIfOdd,
     incrementIfEven,
     selectCount,
-} from "./counterSlice";
+} from "./CounterSlice";
 import Button from "../../components/Button";
 
 import styles from "./Counter.module.css"; // must put at the end to overwrite

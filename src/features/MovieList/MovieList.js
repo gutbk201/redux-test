@@ -17,6 +17,7 @@ function MovieList(props) {
     const bookmarks = useSelector(selectBookmark).data;
     const list = Object.values(props.list);
     if (!list || list.length === 0) return <div>empty</div>;
+
     return (
         <div className={styles.root}>
             {list.map((item) => (

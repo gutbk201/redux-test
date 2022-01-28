@@ -1,8 +1,5 @@
-import { type, path } from "rambdax";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import produce from "immer";
-import dummy from "../../dummyJson/by-genre16.json";
 import genresArray from "../../dummyJson/genres.json";
 import missingImage from "../../assets/missing-image.png";
 const api_key = process.env.REACT_APP_TMDB_API_KEY;

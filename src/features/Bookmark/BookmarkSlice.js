@@ -20,7 +20,6 @@ export const BookmarkSlice = createSlice({
         },
         remove: (state, action) => {
             const id = action.payload;
-            console.log({ id });
             delete state.data[id];
         },
     },

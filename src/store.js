@@ -4,7 +4,6 @@ import movieListReducer from "./features/MovieList/MovieListSlice";
 import movieDetailReducer from "./features/MovieDetail/MovieDetailSlice";
 import bookmarkReducer from "./features/Bookmark/BookmarkSlice";
 import { throttle } from "rambdax";
-import dummy from "./dummyJson/popular.json";
 
 function saveLocalStorage(state) {
     try {

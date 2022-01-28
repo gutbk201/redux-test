@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import dummy from "../../dummyJson/detail-550988.json";
 const api_key = process.env.REACT_APP_TMDB_API_KEY;
 const baseUrl = `https://api.themoviedb.org/3/movie/`;
 function apiGetMovieDetail(id) {

@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import movieListReducer from "./features/MovieList/MovieListSlice";
 import movieDetailReducer from "./features/MovieDetail/MovieDetailSlice";
 import bookmarkReducer from "./features/Bookmark/BookmarkSlice";
-import counterReducer from "./features/Counter/counterSlice";
+// import counterReducer from "./features/Counter/counterSlice";
 import { throttle } from "rambdax";
 
 function saveLocalStorage(state) {
@@ -32,7 +32,7 @@ export const store = configureStore({
         bookmark: loadLocalStorage().bookmark,
     },
     reducer: {
-        counter: counterReducer,
+        counter: bookmarkReducer,
         bookmark: bookmarkReducer,
         movieDetail: movieDetailReducer,
         movieList: movieListReducer,

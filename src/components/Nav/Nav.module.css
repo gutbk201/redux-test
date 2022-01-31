@@ -1,3 +1,17 @@
 .nav {
     gap: 1rem;
 }
+.github {
+    width: 2rem;
+    transition-duration: 500ms;
+}
+
+.github:hover {
+    filter: brightness(1.4);
+}
+
+@media (max-width: 768px) {
+    .responsive-navbar-nav {
+        margin-top: 1rem;
+    }
+}

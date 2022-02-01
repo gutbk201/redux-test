@@ -29,7 +29,12 @@
         "ansi-regex": "5.0.1",
         "nth-check": "2.0.1",
         "glob-parent": "6.0.1",
-        "browserslist": "4.18.1"
+        "browserslist": "4.18.1",
+        "node-forge": "1.0.0",
+        "json-schema": "0.4.0",
+        "ws": "6.2.2",
+        "postcss": "8.2.13",
+        "is-svg": "4.3.0"
     },
     "scripts": {
         "start": "react-scripts start",
